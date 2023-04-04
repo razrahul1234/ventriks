@@ -14,7 +14,7 @@ export class CommonService {
             let data:any = localStorage.getItem('university');
             return of(JSON.parse(data));
         }
-        return this.http.get('http://universities.hipolabs.com/search').pipe(tap((res :any) => {
+        return this.http.get('https://universities.hipolabs.com/search').pipe(tap((res :any) => {
             res.map((data:any, i:number) => { 
                 data.favorites = false;
                 data.id = i;
