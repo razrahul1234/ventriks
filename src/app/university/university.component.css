@@ -1,0 +1,49 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+    margin: auto;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+.main{
+    padding: 70px 0;
+    /* border: 1px solid rgb(24, 12, 192); */
+    text-align: center;
+}
+
+label, input, select{
+    font-size: 16px;
+    width: 300px;
+}
+
+.prev::before {
+    content: " ";
+    border-left: 2px solid #000;
+    border-bottom: 2px solid #000;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+    cursor: pointer;
+    display: inline-block;
+}
+
+.next::before {
+    content: " ";
+    border-right: 2px solid #000;
+    border-top: 2px solid #000;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+    cursor: pointer;
+    display: inline-block;
+}

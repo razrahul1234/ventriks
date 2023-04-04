@@ -1,0 +1,53 @@
+<div class="main">
+    <h1>University data</h1>
+    <label for="uname">Search for University :</label> &nbsp;
+    <input type="text" id="uname" [(ngModel)]="name" (input)="search()">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <label for="country">Search for Country :</label> &nbsp;
+   
+    <select name="country" id="country" [(ngModel)]="country" (change)="search()">
+        <option *ngFor="let d of countryDropDown" value="{{d}}" >{{d}}</option>
+    </select>
+
+    <br><br>
+
+    <table width="80%">
+        <tr>
+            <th *ngFor="let col of columns">
+                {{col.header}}
+            </th>
+        </tr>
+        <tr *ngFor="let data of tableValues">
+            <td>
+                <span *ngIf="data.favorites">
+                    <img src="/assets/star.avif" width="33px" height="33px">
+                </span>
+            </td>
+            <td>{{data.name}}</td>
+            <td>{{data.country}}</td>
+            <td>{{data.alpha_two_code}}</td>
+            <td>{{data.web_pages}}</td>
+            <td><button type="button" (click)="mark(data.id)">Mark</button></td>
+        </tr>
+        <tr *ngIf="!tableValues || tableValues.length<=0">
+            <td colspan="4" style="text-align: center;">No records found</td>
+        </tr>
+    </table>
+
+    <br><br>
+    <!-- pagination -->
+    <label for="pagination">Items Per Page :</label> &nbsp;
+    <select name="itemsperpage" id="itemsperpage" [(ngModel)]="itemsPerPage" (change)="changeItemsPerPage()">
+        <option *ngFor="let d of itemsPerPageDropDown" value="{{d}}" >{{d}}</option>
+    </select>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="prev" (click)="previousPage()" *ngIf="pageNumber > 1" ></span>
+     Page {{pageNumber}} of {{totalNumberOfPages}}
+    <span class="next" (click)="nextPage()"></span>
+   
+
+    <!-- Page &nbsp;
+    <a [routerLink]="[]" *ngFor="let page of pagination" (click)="search()">{{page}} &nbsp;</a>
+    of {{pagination.length}} -->
+</div>
